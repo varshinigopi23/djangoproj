@@ -1,0 +1,21 @@
+{% extends 'Base.html' %}
+{% block title %}AthenaJira Upload{% endblock %}
+
+{% block content %}
+<div class="container">
+<script>
+function myFunction() {
+    alert("Uploading...Please click OK & wait for the page to refresh");
+}
+</script>
+<form action = "" method = "POST">
+    {% csrf_token %}
+    <label for="your_name">Re-enter your Ticket ID: </label>
+    <!-- <input id="your_name" type="text" name="your_name"> -->
+    <input type="text" name="jira" class="form-control" style="border-color: #E0B0FF;" value={{request.form.jira}}><br>
+    <input type="submit" class="btn btn-outline-success" onclick="myFunction()" value="Upload">
+</form>
+<div>
+<a href="{% url 'commandlogger' %}" class="nav-item nav-link">Do you want to continue?</a>
+</div></div>
+{% endblock content %}

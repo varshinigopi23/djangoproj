@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<form action = "" method = "POST">
+    {% csrf_token %}
+    <label for="your_name">Your name: </label>
+    <!-- <input id="your_name" type="text" name="your_name"> -->
+    <input type="text" name="jira" value={{request.form.jira}}>
+    <input type="submit" value="OK">
+</form>
+<div class="text-center">
+    <h1>JIRA FETCH TICKET</h1>
+    
+        <textarea rows="30" cols="100" readonly>
+            {{data}}
+            </textarea>
+    </div>
+</html>

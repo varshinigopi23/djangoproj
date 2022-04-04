@@ -1,0 +1,49 @@
+
+
+{% extends 'base.html'%}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src=https://images.squarespace-cdn.com/content/v1/5a7a755faeb6253d61dc6291/1612988506482-T6T955RWXRT9EL5TY1GX/ezgif-1-f9ffe15e76f92.gif?format=1000w alt="Computer man" >
+    </div>
+    <div class="col" text="right">
+      <div id="content-container" class="container p-none">
+          <div class="col text-center">
+              <form id="login-form" method="post" 
+                    action="{% url 'login_url' %}">
+                  {% csrf_token %}
+                  <table class="table">
+                      <tr>
+                          <br>
+                          <br><br><br>
+                          <td><label for="id_username">Username</label></td>
+                          <td><input id="id_username" name="username" 
+                                     type="text" class="form-control" style="border-color: #E0B0FF;"></td>
+                      </tr>
+                      <tr>
+                          <td><label for="id_password">Password</label></td>
+                          <td><input id="id_password" name="password" 
+                                     type="password" class="form-control" style="border-color: #E0B0FF;"></td>
+                      </tr>
+                      
+                  </table>
+                  {% if form.errors %}
+                      <p class=" label label-danger">
+                          Your username and password didn't match. 
+                          Please try again.
+                      </p>
+                  {% endif %}
+        
+                  <input type="submit" value="Login" 
+                         class="btn btn-primary pull-right" style=" background-color:#E0B0FF; color: black; border-color:white ;"/>
+                  <input type="hidden" name="next" value="{{ next }}" />
+              </form>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} 
+

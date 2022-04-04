@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% block title %}AthenaJira Commands{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <script language="Javascript" >
+
+        function download(filename, text){
+
+            var pom = document.createElement('a');
+            pom.style.display = 'none';
+            document.body.appendChild(pom);
+
+            pom.setAttribute('download', 'commandtext');
+            pom.setAttribute('href', 'data:text/plain;charset=utf-8,'
+                + encodeURIComponent(text));
+
+            pom.click();
+            document.body.removeChild(pom);
+
+        }
+        function ManualRefresh(){
+            window.location.reload();
+        }
+
+        //- SIDE NOTE for addTextTXT()
+        //- This function works as it is, but it's a little sketchy using
+        //- document.addtext directly inside it. The input we want to check
+        //- should be passed as a parameter, if in the future we wish to
+        //- extend this code to work with multiple forms in the same page.
+        //- It's good for now, though
+        
+        function addTextTXT(){
+
+            //- You may as well do some field validation here, and rename this
+            //- function validate()
+
+            //- Check if the last 4 characters of filename are already ".txt" or ".TXT"
+            //- or any other variation of lower-case and upper-case
+            if(document.addtext.filename.value.substr(-4).toLowerCase() != ".txt"){
+                //- Append ".txt" if missing
+                document.addtext.filename.value += ".txt"
+            }
+        }
+
+        //- This function collects all the data present inside the form
+        //- formats it accordingly, and passes the entyre text content
+        //- to the download() function above
+        function downloadData(formElement){
+                         const msg = document.getElementById('msg');
+            //- We start with an initially empty file content
+            var text = "";
+                         
+            //- We iterate over all the form's inputs
+            for(var i=0; i<formElement.length; i++){
+                var input = formElement[i];
+                //- We discard the submit button and the filename field.
+                //- If you remove this if statement the file will contain
+                //- all the inputs.
+                if(input.type == "text" && input.name != "filename"){
+                    //- We append to the file content the name of the fiend
+                    //- and it's value in single quotes (i like to quote them
+                    //- to spot empty fields or to easily debug them later)
+                    //- We append after each value an epty line: \n
+                    text += input.value + "\n";
+                }else if(input.type =="checkbox"){
+                    
+                                       if(input.checked)
+                                       {
+                                                      text+=input.name+"\n";
+                                       }
+                }
+            }
+                         text+=msg.value;
+            //- Now the text variable contains all the info, so we send it
+            //- for downloading
+            download(formElement.filename, text);
+
+
+            //- If we wish, we prevent navigation or page reload by returning false
+            return false;
+        }
+        
+
+
+    </script>
+    <style>
+
+        .active-pink-textarea.md-form label.active {
+      
+        color: #f48fb1;
+      
+      }
+      
+      .active-pink-textarea-2 textarea.md-textarea {
+      
+        border-bottom: 1px solid #f48fb1;
+      
+        box-shadow: 0 1px 0 0 #f48fb1;
+      
+      }
+      
+      .active-pink-textarea-2.md-form label.active {
+      
+        color: #f48fb1;
+      
+      }
+      
+      .active-pink-textarea-2.md-form label {
+      
+        color: #f48fb1;
+      
+      }
+      
+      .active-pink-textarea-2.md-form .prefix {
+      
+        color: #f48fb1;
+      
+      }
+      
+      .active-pink-textarea-2.md-form textarea.md-textarea:focus:not([readonly])+label {
+      
+        color: #f48fb1;
+      
+      }
+      </style>
+</head>
+<body>
+    <div class="container py-5" style="color: rgb(88,44,131);">
+        <header class="text-center">
+          <h1 class="display-4" >AthenaJira</h1>
+          
+        </header></div>
+    <div class="container">
+        
+    <form action = "" method = "POST">
+        {% csrf_token %}
+        <label for="your_name" > AthenaJira TicketId: </label>
+        <!-- <input id="your_name" type="text" name="your_name"> -->
+        <input type="text" class="form-control" style="border-color: #E0B0FF;" name="jira" value={{request.form.jira}}>
+        <br>
+        <input type="submit" class="btn btn-outline-success" value="Fetch">
+    </form><br>
+    <!-- <div class="text-center">
+        <h4>Ticket Description</h4>
+        
+            <textarea rows="15" cols="75" readonly>
+                {{data}}
+                </textarea>
+        </div><br> -->
+        <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
+
+            <i class="fas fa-angle-double-right prefix"></i>
+            <h4>Ticket Description</h4>
+            <textarea id="form23" class="md-textarea form-control" rows="15" cols="75" readonly>
+                
+                {{data}}
+            </textarea>
+          
+          </div>
+    
+    
+    <form name="addtext" method="post" onsubmit="return downloadData(this);">
+        <p>Server Name:
+            <input type="text" name="server" class="form-control" style="border-color: #E0B0FF;"><br></p>
+            <p>Check the Checkbox from the available commands</p>
+        <input type="checkbox"   name="date"> date<br>
+        <input type="checkbox"  name="ls"> ls<br><br>
+        
+        <p>Include Additional Commands below</p>
+        <textarea type="text" id="msg" class="form-control" style="border-color: #E0B0FF;" name="msg" placeholder="Type here..." style="height:100px"></textarea>
+        <br><input type="submit" class="btn btn-outline-success" onClick="addTextTXT();" value="Save">
+        
+    </form>
+    <form action="external" method="post">
+        {% csrf_token %}
+       <!-- Type Enter!!
+       <input type="text" name="param" required><br><br>  -->
+       {{data_external}}<br>
+       {{data1}}
+       <br>
+       <input type="submit" name ="param" class="btn btn-outline-success" value="Execute "><br><br>
+       
+   </form></div>
+</body>
+{% endblock content %}

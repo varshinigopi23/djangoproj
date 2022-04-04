@@ -1,0 +1,115 @@
+{% extends 'base.html'%}
+{% block content %}
+<!-- <div class="container-xxl" >
+    <div class="card bg-light text-white " style="width: 25rem;"  >
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="2000">
+    <img src="https://media.istockphoto.com/photos/profile-picture-of-smiling-indian-female-employee-picture-id1278778757?k=20&m=1278778757&s=170667a&w=0&h=hPUGTdP1wSPrQF7Dz4YpD2PSG4Wix0n0g52BTGSNmHo=" class="w-100" alt="...">
+    <div class="carousel-caption d-none d-md-block">
+    <h5>First slide</h5>
+    <p>first slide.</p>
+    </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+    <img src="https://videohive.img.customer.envatousercontent.com/files/439a0a80-ea11-4c57-af85-5874ed4060c7/inline_image_preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=0e9fee5104c38ee0c2d7f065e2b22b22" class="w-100" alt="...">
+    <div class="carousel-caption d-none d-md-block">
+    <h5>Second slide</h5>
+    <p>Some representative placeholder content for the second slide.</p>
+    </div>
+    </div>
+    <div class="carousel-item">
+    <img src="https://caas.athenahealth.com/sites/default/files/IMG_team-sitting-green-chairs_DGT.jpg" class="w-100 " alt="...">
+    <div class="carousel-caption d-none d-md-block">
+    <h5>Third slide</h5>
+    <p>Some representative placeholder content for the third slide.</p>
+    </div>
+    </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+    </div></div></div> -->
+    <!-- <style>
+    .card-img-top {
+        width: 50%;
+        height: 50vh;
+        object-fit: contain;
+        }
+       </style> -->
+       <div class="container">
+    <div class="card" style="border-color:  white; ">
+        <div class="embed-responsive embed-responsive-9by16">
+           <img alt="Card image cap" class="card-img-top img-fluid embed-responsive-item" src="https://caas.athenahealth.com/sites/default/files/BNR_Patients_Hallway_Med-Facility_DGT.jpg" style="width: 90rem; height: 20rem;"/>
+           <div class="card-img-overlay text-white-75" >
+            {% if user.is_authenticated %}
+            <h1 style="font-size:75px" >Welcome </h1>
+            <h2>{{ user.username }}!</h2>
+          {% else %}
+            <p>You are not logged in</p>
+            <a href="{% url 'login_url' %}">Log In</a>
+          {% endif %}</div>
+        </div>
+        <div class="card-block">
+            <h3 class="card-title" style="color:rgb(88,44,131);"><br>Audit Request</h3>
+            <p class="card-text" style="color:black">A cloud audit is a periodic examination that an organization does to assess and document its cloud vendor performance. The goal of such an audit is to see how well a cloud vendor is doing in meeting a set of established controls and best practices.<br><br>The Cloud Infrastructure Engineering(CIE) - Production provides audit documents, guidance and controls that an IT organization can use to examine its cloud vendors. CIE resources are considered the primary audit tools to perform and optimize a comprehensive cloud audit.
+                
+            </p>
+                
+               
+          
+        </div>
+      </div>
+       </div>
+       <br><br>
+
+
+       <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="border-color:  white; ">
+                    <img class="card-img-top1 img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPwUEt3lQMb9x-am9QaVNgzVa1LBmQEaqcWw&usqp=CAU" alt="Card image cap">
+                    <div class="card-block" >
+                        <h4 class="card-title" style="color:rgb(88,44,131);">&nbsp;AthenaJira</h4>
+                        <p class="card-text"style="text-align: justify;" >&nbsp;&nbsp;&nbsp;&nbsp;An agile project management tool that supports any agile methodology, be it scrum, kanban, or your own unique flavor. From agile boards, backlogs, roadmaps, reports, to integrations and add-ons you can plan, track, and manage all your agile software development projects from a single tool.</p>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a class="btn btn-outline-success"  href="https://athenajira.athenahealth.com/" target="_blank" role="button">Visit AthenaJira</a><br><br>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="border-color:  white; ">
+                    <img class="card-img-top1 img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMeFwqE4heQ3X07UJZiy0ck-UiNH3BVO8mqA&usqp=CAU" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title" style="color:rgb(88,44,131);">&nbsp;Athenahealth.service-now</h4>
+                        <p class="card-text"style="text-align: justify;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A cloud based platform toolset that enables an organization to automate and consolidate a wide number of requests, processes, services and workflows across business domains, meaning that you can use the ServiceNow platform for your IT, HR, Facilities and so on. It an ever-growing platform in the near future.</p>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a class="btn btn-outline-success"  href="https://athenahealth.service-now.com/" target="_blank" role="button">Visit AthenaService</a><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="border-color:  white; ">
+                    <img class="card-img-top1 img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiXm6mK5aCbY04_IplrM3vE-5b6voHqmvbCA&usqp=CAU" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title" style="color:rgb(88,44,131);">&nbsp;AthenaConfluence</h4>
+                        <p class="card-text"style="text-align: justify;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A collaboration wiki tool used to help teams to collaborate and share knowledge efficiently. With confluence, we can capture project requirements, assign tasks to specific users, and manage several calendars at once with the help of Team Calendars add-on. Click the below link for documentation</p>
+                        &emsp;&emsp;&emsp;&emsp;<a class="btn btn-outline-success"  href="{% url 'documentation1' %}" target="_blank" role="button">Visit AthenaDocumentation</a><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      
+
+{% endblock %} 

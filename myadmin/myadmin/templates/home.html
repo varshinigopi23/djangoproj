@@ -1,0 +1,11 @@
+{% extends 'Base.html' %}
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  <h1>Thank You {{ user.username }}!</h1>
+  <h1>You're a Proud Athenista <span style="font-size:125%;color:red;">&hearts;</span></h1>
+  {% endif %}
+  <a href="{% url 'commandlogger' %}" class="nav-item nav-link">Do you want to continue?</a>
+{% endblock content %}

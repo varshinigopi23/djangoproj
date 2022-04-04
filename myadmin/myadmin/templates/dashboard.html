@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block title %}Server Credentials{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="card ">
+            <div class="embed-responsive embed-responsive-9by16">
+               <img alt="Card image cap" class="card-img-top img-fluid embed-responsive-item" src="https://t3.ftcdn.net/jpg/02/97/88/16/240_F_297881676_Zs1c3Fhx6R5QKcEmZnQA0fwUfhaVvbUL.jpg" style="width: 90rem; height: 20rem;"/></div></div><br>
+<div class="row"> 
+    
+    <div class="content">
+
+        <script>
+            function save1(){
+                var text=document.getElementById("bar1").value;
+                text=text.replace(/\n/g,"\r\n");
+                var blob=new Blob([text],{type:"text/plain"});
+                var anchor=document.createElement("a");
+                anchor.download="cred.txt";
+                anchor.href=window.URL.createObjectURL(blob);
+                anchor.target='_blank';
+                anchor.style.display="none";
+                document.body.appendChild(anchor);
+                anchor.click();
+                document.body.removeChild(anchor);
+            }
+        </script>
+        <!-- <p>Please enter your putty username and password:</p>
+        <textarea name="saisie"id="bar1" onkeyup="transcrire" rows="2" class="cadr"></textarea>
+        <input type="button" class="bf" onclick="save1()" value="login"> -->
+        <!-- <div>
+    
+            
+    
+            <div>
+                <input type="text" id="txtName" placeholder="Enter your name" />
+            </div>
+            <br>
+            <div>
+                <input type="password" id="password1" placeholder="Enter your Password" />
+            </div>
+            <br>
+            
+            <br>
+                    
+            <div>
+                <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+            </div>
+        </div> -->
+        
+        <div class="container py-5">
+            <div class="card" style="border-color: white;">
+              <div class="card-header">
+                <h4 class="display-6" style="color: rgb(88,44,131);"> Server Login Credentials</h4>
+                
+             
+              </div>
+              <div class="card-block"><br>
+                <p class="card-title">Username</p>
+                <input id="txtName" name="username" type="text" class="form-control" style="border-color: #E0B0FF;">
+                <p class="card-title">Password</p>
+                <input id="password1" name="password" type="password" class="form-control" style="border-color: #E0B0FF;">
+                <p class="card-title">Passcode</p>
+                <input id="passcode1" name="passcode" type="text" class="form-control" style="border-color: #E0B0FF;">
+                <br>
+                <!-- <tr>
+                    <td><label for="id_passcode">Passcode</label></td>
+                    <td><input id="id_passcode" name="passcode" 
+                               type="text" class="form-control" style="border-color: #E0B0FF;"></td>
+                </tr> -->
+                <input type="button" class="btn btn-outline-success" id="bt" value="Save" onclick="saveFile()" />
+                
+              </div>
+            </div>
+          </div>
+          
+
+    <script>
+let saveFile = () => {
+    
+    // Get the data from each element on the form.
+    const name = document.getElementById('txtName');
+
+    const password = document.getElementById('password1');
+
+    // const servername = document.getElementById('sname');
+    
+    
+    // This variable stores all the data.
+    let data = 
+        name.value + '\n' + 
+        password.value + '\n';
+        //servername.value;
+    
+    // Convert the text to BLOB.
+    const textToBLOB = new Blob([data], { type: 'text/plain' });
+    const sFileName = 'cred.txt';        // The file to save the data.
+
+    let newLink = document.createElement("a");
+    newLink.download = sFileName;
+
+    if (window.webkitURL != null) {
+        newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    }
+    else {
+        newLink.href = window.URL.createObjectURL(textToBLOB);
+        newLink.style.display = "none";
+        document.body.appendChild(newLink);
+    }
+
+    newLink.click(); 
+}
+</script><br><br>
+
+
+    
+
+    
+    
+   
+    
+    
+</div></div></div>
+{% endblock content %}

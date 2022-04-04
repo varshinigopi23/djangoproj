@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}AthenaConfluence Documentation{% endblock %}
+<!-- {% load static %} <img src='{% static "images/pic1.jpg" %}' alt="home" /> -->
+{% block content %}
+
+<div class="container py-5">
+    <header class="text-center">
+      <h1 class="display-4">Audit Request Procedure</h1>
+      
+    </header>
+    <br><br>
+    <strong>Audit Request Confluence: <a href="https://athenaconfluence.athenahealth.com/display/SDSRETRG/SOP+for+AUDIT+tickets?src=contextnavpagetreemode" >Click Here</a></strong><br>
+  
+    
+  
+  
+        <!-- BIG EXAMPLE =================================== -->
+  
+  
+        <div class="py-5">
+          <h2 class="h4 font-italic mb-4">Procedure:</h2>
+          <div class="row">
+            <div class="col-lg-5">
+                {% load static %} <img src='{% static "images/loginnew.png" %}' alt="home" class="w-100 mb-4 border border-md border-white shadow-sm"/>
+            </div>
+            <div class="col-lg-7"><br><br><br><br>
+              <p class="font-italic text-muted"> Login into the Audit Request Portal by entering your username, password, passcode.<br> Once logged in, you will be redirected to the home page of the portal.</p>
+              
+            </div>
+          </div>
+
+        </div>
+        
+        <div class="py-5">
+            
+            <div class="row">
+              <div class="col-lg-8">
+                  <br><br><br><br><br>
+                  <p class="font-italic text-muted"> Navigate to the Credentials tab from the navigation bar. You will be directed to the Server login page. Please enter the Server Username and Password for which you wish to generate the Audit Request. Once entering please save the credentials using the <b>"Save"</b> button. </p>
+              </div>
+              <div class="col-lg-4">
+                
+                {% load static %} <img src='{% static "images/cred1.png" %}' alt="home" class="w-100 mb-4 border border-md border-white shadow-sm"/>
+              </div>
+            </div>
+  
+          </div>
+          <div class="py-5">
+            <div class="row">
+              <div class="col-lg-5">
+                  {% load static %} <img src='{% static "images/navjira.png" %}' alt="home" class="w-100 mb-4 border border-md border-white shadow-sm"/>
+              </div>
+              <div class="col-lg-7">
+                <p class="font-italic text-muted"> After clicking the save button, use the navigation bar and click on the Jira tab. You will be redirected to the Jira tab.</p>
+                
+              </div>
+            </div>
+  
+          </div>
+          <div class="py-5">
+            
+            <div class="row">
+              <div class="col-lg-7">
+                  <br><br>
+                  <p class="font-italic text-muted"> Enter the appropriate Jira TicketId and click on "Fetch".</p>
+              </div>
+              <div class="col-lg-4">
+                
+                {% load static %} <img src='{% static "images/jiraticketid.png" %}' alt="home" class="w-100 mb-4 border border-md border-white shadow-sm"/>
+              </div>
+            </div>
+  
+          </div>
+          <div class="py-5">
+            <div class="row">
+              <div class="col-lg-5">
+                  {% load static %} <img src='{% static "images/Jiraticketdesc.png" %}' alt="home" class="w-100 mb-4 border border-md border-white shadow-sm"/>
+              </div>
+              <div class="col-lg-7"><br><br><br>
+                <p class="font-italic text-muted"> The Description of the above entered Jira ticket will be fetched as shown alongside. </p>
+                
+              </div>
+            </div>
+  
+          </div>
+          <div class="py-5">
+            
+            <div class="row">
+              <div class="col-lg-8">
+                  <br><br>
+                  <p class="font-italic text-muted"> Please enter your Server name on which the Audit Request Process should be performed.<br><br><br>Use the Checkbox and check the necessary commands to be included.<br><br><br><br>Any other commands that are needed to be executed can be entered into the textarea available(on individual lines).<br><br><br>Once done click the "Save" button and follow it up by clicking the "Execute" button. </p>
+              </div>
+              <div class="col-lg-4">
+                
+                {% load static %} <img src='{% static "images/puttyexec.png" %}' alt="home" class="w-100 mb-4 border border-md border-white shadow-sm"/>
+              </div>
+            </div>
+  
+          </div>
+          <div class="py-5">
+            <div class="row">
+              <div class="col-lg-5">
+                  {% load static %} <img src='{% static "images/Jiraupload.png" %}' alt="home" class="w-100 mb-4 border border-md border-white shadow-sm"/>
+              </div>
+              <div class="col-lg-7"><br><br><br><br><br>
+                <p class="font-italic text-muted">Re-enter the TicketId and click on the "Upload" button. Your files will be uploaded to the respective Ticket on AthenaJira.</p>
+                
+              </div>
+            </div>
+  
+          </div>
+          <div class="py-5">
+            
+            <div class="row">
+              <div class="col-lg-8">
+                  <br><br>
+                  <p class="font-italic text-muted"> <br><br><br>Enter your ServiceNow Username, Password and Sys Id and click on "Upload".Your files will be uploaded to the respective Incident on Athena ServiceNow.</p>
+              </div>
+              <div class="col-lg-4">
+                
+                {% load static %} <img src='{% static "images/Servicenowupload.png" %}' alt="home" class="w-100 mb-4 border border-md border-white shadow-sm"/>
+              </div>
+            </div></div>
+            <img class="rounded mx-auto d-block" src="https://i.pinimg.com/originals/cf/90/bb/cf90bb1b741ff44adde054a2e12b82e6.gif" alt="Thank You!!">
+    
+    
+  
+</div>
+{% endblock content %}

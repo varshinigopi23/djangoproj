@@ -1,0 +1,28 @@
+{% extends 'Base.html' %}
+{% block title %}ServiceNow{% endblock %}
+
+{% block content %}
+<div class="container">
+<script>
+function myFunction() {
+    alert("Uploading...Please click OK & wait for the page to refresh");
+}
+</script>
+<div class="card-header">
+    <h4 class="display-6" style="color: rgb(88,44,131);"> ServiceNow Incident Details</h4>
+    
+ 
+  </div><br>
+<form action = "" method = "POST">
+    {% csrf_token %}
+    <label for="your_name" >ServiceNow Username: </label>
+    <input type="text" name="username" class="form-control" style="border-color: #E0B0FF;" value={{request.form.username}}>
+    <br><label for="your_name">ServiceNow Password: </label>
+    <input type="password" name="spassword" class="form-control" style="border-color: #E0B0FF;" value={{request.form.spassword}}>
+    <br><label for="your_name">Enter your Sys ID: </label>
+    <input type="text" name="snow" class="form-control" style="border-color: #E0B0FF;" value={{request.form.snow}}>
+    <br><input type="submit" class="btn btn-outline-success" onclick="myFunction()" value="Upload">
+</form>
+
+</div>
+{% endblock content %}

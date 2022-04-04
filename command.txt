@@ -1,0 +1,3 @@
+devnocvm10058
+date
+netstat
